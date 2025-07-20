@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday, Klara!</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('background.jpg'); /* Replace with your background */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: 'Great Vibes', cursive;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    /* Header */
+    h1 {
+      font-size: 60px;
+      color: white;
+      text-align: center;
+      margin-top: 30px;
+      animation: fadeInOut 6s infinite;
+    }
+
+    @keyframes fadeInOut {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+
+    /* Cake image */
+    .cake {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .cake img {
+      width: 180px;
+      height: auto;
+    }
+
+    /* Rotating CD */
+    .cd {
+      width: 100px;
+      height: 100px;
+      margin: 40px auto 10px;
+      background-image: url('cd.png'); /* Replace with your CD image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      animation: spin 4s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Sound Wave Animation */
+    .sound-wave {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 10px;
+    }
+
+    .bar {
+      width: 4px;
+      height: 16px;
+      background: white;
+      animation: wave 1s infinite ease-in-out;
+    }
+
+    .bar:nth-child(1) { animation-delay: 0s; }
+    .bar:nth-child(2) { animation-delay: 0.2s; }
+    .bar:nth-child(3) { animation-delay: 0.4s; }
+    .bar:nth-child(4) { animation-delay: 0.2s; }
+    .bar:nth-child(5) { animation-delay: 0s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.5); }
+      50% { transform: scaleY(1.5); }
+    }
+
+    /* Audio Controls */
+    .audio-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    #music-btn {
+      background-color: #e91e63;
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    #music-btn:hover {
+      background-color: #f06292;
+    }
+
+    /* Gift Links */
+    .links {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .links a {
+      display: block;
+      margin: 15px auto;
+      color: white;
+      font-size: 22px;
+      text-decoration: none;
+      background-color: #e91e63;
+      padding: 12px 24px;
+      border-radius: 10px;
+      width: fit-content;
+      transition: background-color 0.3s;
+    }
+
+    .links a:hover {
+      background-color: #f06292;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Happy Birthday</h1>
+
+  <div class="cake">
+    <img src="cake.png" alt="Birthday Cake">
+  </div>
+
+  <div class="cd"></div>
+
+  <!-- Audio and Play/Pause Controls -->
+  <div class="audio-controls">
+    <button id="music-btn">⏸ Pause</button>
+    <div class="sound-wave">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+  </div>
+
+  <audio id="bg-music" autoplay loop>
+    <source src="mazzystar.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Gift Links -->
+  <div class="links">
+    <a href="https://docs.google.com/document/d/1-YWHNHSkkckV4Pg7SEacK6UEwRF6fe25A0h2rHH3yh4/edit?usp=sharing" target="_blank">The Scent After Rain</a>
+    <a href="https://open.spotify.com/playlist/75nnuHnVw9sP8Ss0Fm0K2n?si=8f3ebaaa096441b1" target="_blank">Zephyr's Sigh</a>
+    <a href="https://pin.it/VQKxeM3qF" target="_blank">And the Show Ends Here</a>
+  </div>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('music-btn');
+
+    btn.addEventListener('click', () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = '⏸ Pause';
+      } else {
+        music.pause();
+        btn.textContent = '▶️ Play';
+      }
+    });
+  </script>
+
+</body>
+</html>
